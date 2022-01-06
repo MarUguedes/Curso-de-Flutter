@@ -6,5 +6,6 @@ void main() {
   valorA = valorB;
   valorB = valorArmazenado;
 
-  print("-ValorA=$valorA -ValorB=$valorB");
+  print("-ValorA: $valorA ");
+  print("-ValorB: $valorB");
 }

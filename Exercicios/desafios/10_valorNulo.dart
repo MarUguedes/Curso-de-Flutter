@@ -1,5 +1,5 @@
 void main() {
-  var valor=23;
+  var valor;
 
   if (valor == null) {
     print("NullPointerException: Erro");

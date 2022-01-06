@@ -5,9 +5,7 @@ void main() {
 
   final valorConsorcio = (parcelas * valorParcela);
   final saldoDevedor = (valorConsorcio - (valorParcela * parcelasPagas));
-  final valorConsorcioArredondado = valorConsorcio.toStringAsFixed(2);
-  final saldoDevedorArredondado = saldoDevedor.toStringAsFixed(2);
-
-  print("Valor total do consorcio:$valorConsorcioArredondado");
-  print("Saldo devedor:$saldoDevedorArredondado");
+  
+  print("Valor total do consorcio:${valorConsorcio.toStringAsFixed(2)}");
+  print("Saldo devedor:${saldoDevedor.toStringAsFixed(2)}");
 }

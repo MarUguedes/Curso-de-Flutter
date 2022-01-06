@@ -1,5 +1,5 @@
 void main() {
-  final num = 0;
+  final num = 7;
 
   if (num == 0) {
     print("Zero");

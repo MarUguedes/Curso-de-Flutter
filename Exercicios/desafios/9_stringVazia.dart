@@ -1,6 +1,5 @@
 void main() {
-  final nome = "Marnei";
+  final nome ="Marnei";
 
-  final referencia = nome.isEmpty ? "visitante" : "$nome";
-  print("Bem vindo(a) $referencia");
+  print("Bem vindo(a) ${nome.isEmpty? "visitante":"$nome"}!");
 }

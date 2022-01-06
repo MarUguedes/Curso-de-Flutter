@@ -4,6 +4,6 @@ void main() {
   final nota3 = 8;
 
   final media = (nota1 + nota2 + nota3) / 3;
-  final mediaArredondada = media.toStringAsFixed(1);
-  print("Média: $mediaArredondada");
+  
+  print("Média: ${media.toStringAsFixed(1)}");
 }

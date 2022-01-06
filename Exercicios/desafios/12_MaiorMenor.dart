@@ -1,6 +1,6 @@
 void main() {
-  final num1 = 7;
-  final num2 = 43;
+  final num1 = 5;
+  final num2 = 5;
 
   if (num1 == num2) {
     print("Valores Iguais");

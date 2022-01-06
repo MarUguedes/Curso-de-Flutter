@@ -1,9 +1,11 @@
 void main() {
   final desconto = 23;
-  final preco = 500;
-  final valorPago = 500 - (preco * desconto / 100);
+  double preco = 500;
 
-  print("Preço do produto: $preco");
-  print("Desconto:$desconto%");
-  print("Preço do produto com desconto:$valorPago");
+  var abatimento = preco * desconto / 100;
+  final valorPago = 500 - abatimento;
+
+  print("Preço do produto: R\$$preco");
+  print("Desconto de $desconto%: R\$$abatimento");
+  print("Preço do produto com desconto: R\$$valorPago");
 }

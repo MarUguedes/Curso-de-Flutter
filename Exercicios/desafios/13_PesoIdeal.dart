@@ -1,9 +1,9 @@
 void main() {
-  final altura = 1.65;
-  final sexo = "f";
+  final altura = 1.85;
+  final sexo = "m";
   var pesoIdeal;
 
-  if (sexo == "f") {
+  if (sexo == "f"|| sexo=="F") {
     pesoIdeal = ((62.1 * altura) - 44.7);
   } else {
     pesoIdeal = (72.7 * altura) - 58;
