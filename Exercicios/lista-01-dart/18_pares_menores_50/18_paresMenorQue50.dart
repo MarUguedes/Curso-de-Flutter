@@ -1,11 +1,11 @@
 void main() {
-  final num = 50;
-  var list = [];
+  int num = 50;
+  String resultado = "";
 
   for (var index = 1; index < num; index++) {
     if (index % 2 == 0) {
-    
-      print(index);
+      resultado += "$index ";
     }
   }
+  print(resultado);
 }

@@ -1,5 +1,5 @@
 void main() {
-  final num = 11;
+  int num = 11;
   var NumerosImpares = [];
 
   for (var index = 1; index <= num; index++) {

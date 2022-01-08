@@ -1,11 +1,8 @@
 
 void main() {
-  final num = 10;
+  num numero = 10;
 
-  if (num % 5 == 0) {
-    var dobroDeNum = num * 2;
-    print(dobroDeNum);
-  }else{
-    
+  if (numero % 5 == 0) {
+    print("${numero*2}");
   }
 }

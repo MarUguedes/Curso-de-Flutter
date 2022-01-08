@@ -1,5 +1,5 @@
 void main() {
-  final palavra = "inconstitucionalissimamente";
+  String palavra = "inconstitucionalissimamente";
   int tamanho = palavra.length;
   
 
