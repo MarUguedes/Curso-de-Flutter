@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:math';
 
 void main() {
-  final lado = 5;
-  
-  print("${pow(lado, 2)}");
+  print("Digite o lado do quadrado para receber a área");
+  final lado = double.parse(stdin.readLineSync()!);
+
+  print("Área = ${pow(lado, 2)}");
 }

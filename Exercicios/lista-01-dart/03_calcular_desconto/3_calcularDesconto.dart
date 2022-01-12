@@ -1,5 +1,8 @@
+import 'dart:io';
+
 void main() {
-  double preco = 2500;
+  print("Digite o preço do produto");
+  double preco = double.parse(stdin.readLineSync()!);
   var desconto = (preco * 0.1);
   double valorPago = preco - desconto;
 
