@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'soma.dart';
-
 void main() {
   print("Digite um valor inteiro");
   int valor = int.parse(stdin.readLineSync()!);
