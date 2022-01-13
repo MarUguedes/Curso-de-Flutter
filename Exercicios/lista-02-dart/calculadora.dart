@@ -1,11 +1,28 @@
-void main() {
-  double num1 = 5.3;
-  double num2 = 4.25;
-  String operador = "adição";
-  double resultado = 0;
-  String msgErro = "";
-  String simboloDaOperacao = "";
+import 'dart:io';
 
+void main() {
+//variaveis input
+
+  double num1 = 8 ;
+  double num2 = 4;
+  String operador = "multiplicação";
+
+  //Chamando Função que guarda 4 funções com as respectivas operações
+  calculadora(operador, num1, num2);
+
+  //verificando erro e mostrando resultado
+  msgErro.isEmpty
+      ? mostrarResultado(num1, operador, num2, resultado)
+      : print(msgErro);
+}
+
+//variaveis globais para guardar erro, resultado, simbolo da operação
+num resultado = 0;
+String msgErro = "";
+String simboloDaOperacao = "";
+
+//funçao global para operaçoes
+String? calculadora(String operador, double num1, double num2) {
   switch (operador) {
     case "adição":
       resultado = soma(num1, num2);
@@ -24,13 +41,11 @@ void main() {
       simboloDaOperacao = "/";
       break;
     default:
-      msgErro = "Opção invalida";
+      msgErro = "Opção invalida - Digite a operação corretamente.";
   }
-  print(msgErro.isEmpty
-      ? mostrarResultado(num1, simboloDaOperacao, num2, resultado)
-      : msgErro);
 }
 
+//funçoes para cada tipo de operação
 double soma(double num1, double num2) {
   return num1 + num2;
 }
@@ -47,6 +62,7 @@ double divisao(double num1, double num2) {
   return num1 / num2;
 }
 
-String mostrarResultado(num1, operador, num2, resultado) {
-  return "Resultado de $num1 $operador $num2: $resultado";
+// função para imprimir
+String? mostrarResultado(num1, operador, num2, resultado) {
+  print("Resultado de $num1 $operador $num2: $resultado");
 }

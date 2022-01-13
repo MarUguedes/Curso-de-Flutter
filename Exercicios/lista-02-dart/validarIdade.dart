@@ -1,8 +1,18 @@
+import 'dart:io';
+
 void main() {
 //Declarando pessoa
-  List pessoa = ["cristiane", 1, 2, 2003];
+  List pessoa = [];
+  print("Digite seu nome");
+  pessoa.add(stdin.readLineSync());
+  print("Digide o dia de nascimento");
+  pessoa.add(int.parse(stdin.readLineSync()!));
+  print("Digite o número do mês");
+  pessoa.add(int.parse(stdin.readLineSync()!));
+  print("Digite mês de nascimento");
+  pessoa.add(int.parse(stdin.readLineSync()!));
 
-//Definindo a idade atual
+//Definindo a idade atual que chama a função IdadeAtual para realizar o calculo
   num idade = idadeAtual(pessoa[1], pessoa[2], pessoa[3]);
 
 //Mensagem de permissao
@@ -16,15 +26,12 @@ num idadeAtual(int dia, int mes, int ano) {
   final diaAtual = new DateTime.now().day;
   final mesAtual = new DateTime.now().month;
   final anoAtual = new DateTime.now().year;
-  
 
   if (mes > mesAtual) {
-    
-    return (anoAtual - ano)-1 ;
-
+    return (anoAtual - ano) - 1;
   } else if (mes == mesAtual) {
     if (dia > diaAtual) {
-      return (anoAtual - ano) -1;
+      return (anoAtual - ano) - 1;
     } else {
       return anoAtual - ano;
     }
