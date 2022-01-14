@@ -1,5 +1,3 @@
-
-
 class Carro {
   //fields
   final String nome;
@@ -23,7 +21,7 @@ void main() {
 
   //Contador para expor cada veiculo
   for (var index = 0; index < hall.length; index++) {
-    
-    print("Montadora: ${hall[index].nome}\nModelo: ${hall[index].modelo}\nCor: ${hall[index].cor}\nMotor: ${hall[index].potenciaMotor}\nCombustível: ${hall[index].tipoCombustivel}\n");
+    print(
+        "Montadora: ${hall[index].nome}\nModelo: ${hall[index].modelo}\nCor: ${hall[index].cor}\nMotor: ${hall[index].potenciaMotor}\nCombustível: ${hall[index].tipoCombustivel}\n");
   }
 }

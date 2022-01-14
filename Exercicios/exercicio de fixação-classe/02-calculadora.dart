@@ -1,13 +1,8 @@
-//Falta aprimorar inputs
-
 class Calculadora {
-  //fields
   double somar(valor1, valor2) => valor1 + valor2;
   double subtrair(valor1, valor2) => valor1 - valor2;
   double dividir(valor1, valor2) => valor1 / valor2;
   double multiplicar(valor1, valor2) => valor1 * valor2;
-  
-
 }
 
 class tela {
@@ -26,11 +21,13 @@ void main() {
   switch (operador) {
     case "+":
       resultado = Calculadora().somar(valor1, valor2);
-      tela().mostrar(valor1, operador, valor2, resultado);;
+      tela().mostrar(valor1, operador, valor2, resultado);
+      ;
       break;
     case "-":
       resultado = Calculadora().subtrair(valor1, valor2);
-      tela().mostrar(valor1, operador, valor2, resultado);;
+      tela().mostrar(valor1, operador, valor2, resultado);
+      ;
       break;
     case "*":
       resultado = Calculadora().multiplicar(valor1, valor2);
@@ -38,7 +35,8 @@ void main() {
       break;
     case "/":
       resultado = Calculadora().dividir(valor1, valor2);
-      tela().mostrar(valor1, operador, valor2, resultado);;
+      tela().mostrar(valor1, operador, valor2, resultado);
+      ;
       break;
   }
 }
