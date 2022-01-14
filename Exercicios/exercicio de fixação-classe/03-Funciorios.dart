@@ -1,6 +1,6 @@
-import 'funcionarios/caixa.dart';
-import 'funcionarios/gerente.dart';
-import 'funcionarios/vendedor.dart';
+import 'Classefuncionarios/caixa.dart';
+import 'Classefuncionarios/gerente.dart';
+import 'Classefuncionarios/vendedor.dart';
 
 void main() {
   //Dados de funcionarios
