@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+//Falta aprimorar inputs
 
 class Calculadora {
   //fields
@@ -6,7 +6,7 @@ class Calculadora {
   double subtrair(valor1, valor2) => valor1 - valor2;
   double dividir(valor1, valor2) => valor1 / valor2;
   double multiplicar(valor1, valor2) => valor1 * valor2;
-  //getters
+  
 
 }
 

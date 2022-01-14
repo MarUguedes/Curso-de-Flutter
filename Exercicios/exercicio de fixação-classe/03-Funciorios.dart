@@ -1,43 +1,28 @@
-import 'dart:html';
+import 'funcionarios/caixa.dart';
+import 'funcionarios/funcionario.dart';
+import 'funcionarios/gerente.dart';
+import 'funcionarios/vendedor.dart';
 
-class Funcionario {
-  final int matricula;
-  final String nome;
-  final String sobrenome;
-  final double salario;
-  final double horasTrabalhadas;
+void main() {
+  final funcionario1 = Caixa(1579, 'Ana', 'Oliveira', 1212, 230);
+  final funcionario2 = Vendedor(1601, 'João', "Silva", 1212, 230);
+  final Funcionario3 = Gerente(1603, "Maria", "Souza", 1212, 230);
 
-  double horasExtras(double horasTrabalhadas) {
-    return horasTrabalhadas - 220;
+  final salario1 = funcionario1.extras().toStringAsFixed(2);
+  final salario2 = funcionario2.extras().toStringAsFixed(2);
+  final salario3 = Funcionario3.extras().toStringAsFixed(2);;
+  List funcionarios = [funcionario1, funcionario2, Funcionario3];
+
+  print(salario2);
+  print(salario3);
+
+  //Imprime na tela funcionarios e respectivos salarios
+  hall(funcionarios);
+}
+
+String? hall(List lista) {
+  for (var index = 0; index < lista.length; index++) {
+    print(
+        "Matricula: ${lista[index].matricula}\nNome: ${lista[index].nome}\nHoras trabalhadas: ${lista[index].horasTrabalhadas}\nSalário: ");// falta por salario
   }
-
-  Funcionario(this.matricula, this.nome, this.sobrenome, this.salario,
-      this.horasTrabalhadas);
-}
-
-class Caixa extends Funcionario {
-  Caixa(int matricula, String nome, String sobrenome, double salario,
-      double horasTrabalhadas)
-      : super(matricula, nome, sobrenome, salario, horasTrabalhadas);
-}
-
-class Vendedor extends Funcionario {
-  Vendedor(int matricula, String nome, String sobrenome, double salario,
-      double horasTrabalhadas)
-      : super(matricula, nome, sobrenome, salario, horasTrabalhadas);
-
-  @override
-  double? bonificacao() {
-    var bonus = horasExtras(horasTrabalhadas) * 0.2;
-  }
-}
-
-class Gerente extends Funcionario {
-  Gerente(int matricula, String nome, String sobrenome, double salario,
-      double horasTrabalhadas)
-      : super(matricula, nome, sobrenome, salario, horasTrabalhadas);
-}
-
-void main(){
-  
 }
