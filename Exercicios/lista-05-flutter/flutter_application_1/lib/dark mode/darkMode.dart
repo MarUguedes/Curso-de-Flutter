@@ -7,97 +7,45 @@ class DarkMode extends StatefulWidget {
   _DarkModeState createState() => _DarkModeState();
 }
 
-bool darkMode = true;
-Color corFundo1 = darkMode
-    ? const Color.fromARGB(255, 17, 64, 102)
-    : const Color.fromARGB(255, 83, 133, 173);
-Color corFundo2 = darkMode
-    ? const Color.fromARGB(226, 7, 28, 44)
-    : const Color.fromARGB(255, 83, 133, 173);
-Color corCardInicial = darkMode
-    ? const Color.fromARGB(255, 22, 68, 105)
-    : const Color.fromARGB(255, 69, 106, 136);
-Color corCardClick = darkMode
-    ? const Color.fromARGB(255, 37, 123, 194)
-    : const Color.fromARGB(255, 156, 192, 221);
-Color corText = darkMode
-    ? const Color.fromARGB(255, 138, 173, 200)
-    : const Color.fromARGB(255, 17, 51, 78);
-
-String statusMode = 'Light Mode';
-
 class _DarkModeState extends State<DarkMode> {
   bool darkMode = true;
-  Color corFundo1 = const Color.fromARGB(255, 17, 64, 102);
+  int selecionado = -1;
+  Color cor1 = const Color(0xFF114066);
+  Color cor2 = const Color(0xE0071C2C);
+  Color cor3 = const Color(0xFF164469);
+  Color cor4 = const Color(0xFF257BC2);
+  Color cor5 = const Color(0xFF8AADC8);
 
-  List<Widget> cardList = [
-    CardElement(
-      icone: Icon(
-        Icons.lightbulb,
-        size: 60,
-        color: corText,
-      ),
-      item: 'Luzes',
-      onClick: () {},
-    ),
-    CardElement(
-      icone: Icon(
-        Icons.thermostat,
-        size: 60,
-        color: corText,
-      ),
-      item: 'Temperatura',
-      onClick: () {},
-    ),
-    CardElement(
-      icone: Icon(
-        Icons.ac_unit,
-        size: 60,
-        color: corText,
-      ),
-      item: 'Lavadora',
-      onClick: () {},
-    ),
-    CardElement(
-      icone: Icon(
-        Icons.security,
-        size: 60,
-        color: corText,
-      ),
-      item: 'Segurança',
-      onClick: () {},
-    ),
-    CardElement(
-      icone: Icon(
-        Icons.wifi,
-        size: 60,
-        color: corText,
-      ),
-      item: 'Wifi',
-      onClick: () {},
-    ),
-    CardElement(
-      icone: Icon(
-        Icons.tv,
-        size: 70,
-        color: corText,
-      ),
-      item: 'Televisor',
-      onClick: () {},
-    ),
+  List<String> item = [
+    'Luzes',
+    'Temperatura',
+    'Lavadora',
+    'Segurança',
+    'Wifi',
+    'Televisor'
+  ];
+  List icones = [
+    Icons.lightbulb,
+    Icons.thermostat,
+    Icons.water,
+    Icons.security,
+    Icons.wifi,
+    Icons.tv,
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
-      //theme: ThemeData.dark(),
       home: Scaffold(
         body: Container(
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [corFundo1, corFundo2], begin: Alignment.topCenter)),
+            gradient: LinearGradient(
+                colors: [cor1, cor2],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight),
+          ),
           child: Column(
             children: [
               Padding(
@@ -108,47 +56,103 @@ class _DarkModeState extends State<DarkMode> {
                     Icon(
                       Icons.home,
                       size: 70,
-                      color: corText,
+                      color: cor5,
                     ),
                     Column(
                       children: [
                         Text(
                           'SWEET HOME',
-                          style: TextStyle(fontSize: 35, color: corText),
+                          style: TextStyle(fontSize: 35, color: cor5),
                         ),
                         Text(
                           'O que gostaria de monitorar?',
                           style: TextStyle(
-                              color: corText, fontWeight: FontWeight.bold),
+                              color: cor5, fontWeight: FontWeight.bold),
                         ),
                       ],
                     )
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 40,
+              ),
               GridView.count(
+                //Cria grid com 2 colunas
                 crossAxisCount: 2,
+
+                //Permite que o grid compartilhe espaço com outros widgets
                 shrinkWrap: true,
                 childAspectRatio: 1.35,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
-                children: cardList,
+                children: List.generate(
+                  6,
+                  (index) {
+                    return GestureDetector(
+                      onTap: (() {
+                        setState(() {
+                          selecionado = index;
+                        });
+                      }),
+                      child: Container(
+                        margin: const EdgeInsets.all(2),
+                        padding: const EdgeInsets.all(10),
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: index == selecionado ? cor4 : cor3,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(5),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            Icon(
+                              icones[index],
+                              size: 55,
+                              color: cor5,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              item[index],
+                              style: TextStyle(color: cor5, fontSize: 20),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    statusMode,
+                    darkMode ? 'Light Mode' : 'Dark Mode',
                     style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: corText),
+                        fontSize: 15, fontWeight: FontWeight.bold, color: cor5),
                   ),
                   Switch(
                       value: darkMode,
                       onChanged: (bool value) {
                         setState(() {
                           darkMode = !darkMode;
+                          if (darkMode) {
+                            cor1 = const Color(0xFF114066);
+                            cor2 = const Color(0xE0071C2C);
+                            cor3 = const Color(0xFF164469);
+                            cor4 = const Color(0xFF257BC2);
+                            cor5 = const Color(0xFF8AADC8);
+                          } else {
+                            cor4 = const Color.fromARGB(255, 168, 200, 223);
+                            cor3 = const Color.fromARGB(255, 129, 157, 180);
+                            cor5 = const Color(0xFF164469);
+                            cor2 = const Color.fromARGB(255, 187, 207, 223);
+                            cor1 = const Color.fromARGB(255, 187, 207, 223);
+                          }
                         });
                       })
                 ],
@@ -157,68 +161,6 @@ class _DarkModeState extends State<DarkMode> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CardElement extends StatefulWidget {
-  final Icon icone;
-  final String item;
-  final void Function() onClick;
-
-  const CardElement(
-      {Key? key,
-      required this.icone,
-      required this.item,
-      required this.onClick})
-      : super(key: key);
-
-  @override
-  State<CardElement> createState() => _CardElementState();
-}
-
-class _CardElementState extends State<CardElement> {
-  var color = corCardInicial;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        widget.onClick();
-        if (color == corCardInicial) {
-          setState(() {
-            color = corCardClick;
-          });
-        } else {
-          setState(() {
-            color = corCardInicial;
-          });
-        }
-      },
-      child: Card(
-        color: color,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              widget.icone,
-              Text(
-                widget.item,
-                style: TextStyle(fontSize: 20, color: corText),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-abstract class AppTheme {
-  static ThemeData corItem() {
-    return ThemeData(
-      primarySwatch: Colors.red,
-      iconTheme: const IconThemeData(color: Colors.red),
     );
   }
 }
