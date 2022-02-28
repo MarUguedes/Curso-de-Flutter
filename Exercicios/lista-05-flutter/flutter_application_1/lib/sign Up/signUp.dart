@@ -92,15 +92,13 @@ class _LoginState extends State<Login> {
                 Expanded(
                   flex: 6,
                   child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Data de nascimento',
-                      border: OutlineInputBorder(),
-                    ),
-                    keyboardType: TextInputType.number,
-                    textInputAction: TextInputAction.next,
-                    readOnly: true
-                    
-                  ),
+                      decoration: InputDecoration(
+                        labelText: 'Data de nascimento',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
+                      readOnly: true),
                 ),
                 SizedBox(
                   width: 10,
