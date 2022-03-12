@@ -8,12 +8,13 @@ class TryCatch extends StatefulWidget {
 }
 
 class _TryCatchState extends State<TryCatch> {
-  var firstValue;
-  var secondValue;
+  String firstValue = '';
+  String secondValue = '';
   var result;
+
   void soma() {
     setState(() {
-      result = firstValue + secondValue;
+      result = (double.parse(firstValue)) + (double.parse(secondValue));
       print(result);
     });
   }
@@ -28,16 +29,30 @@ class _TryCatchState extends State<TryCatch> {
             body: Column(
               children: [
                 TextField(
-                  onChanged: (value) => firstValue = value,
+                  onChanged: (value) => firstValue = (value),
                 ),
                 TextField(
                   onChanged: (value) => secondValue = value,
                 ),
                 ElevatedButton(
-                  onPressed: soma,
+                  onPressed: somar,
                   child: const Text('Calcular'),
                 ),
               ],
             )));
+  }
+
+  void somar() {
+    try {
+      soma();
+    } catch (error) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const AlertDialog(
+              content: Text('Erro apenas números'),
+            );
+          });
+    }
   }
 }

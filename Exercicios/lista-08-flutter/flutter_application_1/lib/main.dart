@@ -14,5 +14,5 @@ void main() {
      theme: ThemeData.dark(),
     home: Pomodoro(),
   ));*/
-  runApp(TryCatch());
+  runApp(MaterialApp(home: TryCatch()));
 }
